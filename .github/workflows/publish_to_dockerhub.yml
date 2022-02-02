@@ -1,10 +1,8 @@
-name: Publish Docker image on DockerHub
+name: Publish Docker image to DockerHub
+
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'Dockerfile'
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
