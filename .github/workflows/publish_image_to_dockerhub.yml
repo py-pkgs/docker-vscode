@@ -1,0 +1,46 @@
+name: Publish Docker image on DockerHub
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Dockerfile'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@master
+      with:
+        fetch-depth: '0'
+
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.17.2
+      id: bump
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        WITH_V: true
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.bump.outputs.new_tag }}
+        release_name: ${{ steps.bump.outputs.new_tag }}
+        body: |
+          Changes in this Release
+          - Rebuilt Docker image and published to DockerHub with new tag
+        draft: false
+        prerelease: false
+
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: tbeuzen/py-pkgs-vscode
+        username: ${{ secrets.DOCKER_USERNAME_TB }}
+        password: ${{ secrets.DOCKER_PASSWORD_TB }}
+        tags: "latest,${{ steps.bump.outputs.new_tag }}"
