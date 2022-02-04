@@ -4,6 +4,7 @@ RUN apt update -y && \
   apt upgrade -y && \
   apt install -y --no-install-recommends \
   git \
+  make \
   curl
 
 RUN conda install -c conda-forge -y -q cookiecutter
