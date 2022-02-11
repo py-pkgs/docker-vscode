@@ -1,6 +1,6 @@
 # py-pkgs Visual Studio Code Docker support
 
-Docker support for the open-source [py-pkgs book](https://py-pkgs.org). This repository automatically builds and publishes the image `tbeuzen/py-pkgs-vscode` to DockerHub. The image is intended to be used for development with [Visual Studio Code](https://code.visualstudio.com/) and its [Remote - Containers extension](https://code.visualstudio.com/docs/remote/containers), but can be used in other workflows too.
+Docker support for the open-source [py-pkgs book](https://py-pkgs.org). This repository automatically builds and publishes the image `pypkgs/vscode` to DockerHub. The image is intended to be used for development with [Visual Studio Code](https://code.visualstudio.com/) and its [Remote - Containers extension](https://code.visualstudio.com/docs/remote/containers), but can be used in other workflows too.
 
 ## Usage
 
@@ -8,7 +8,7 @@ To develop with Docker inside Visual Studio Code, you can consult the Visual Stu
 
 1. Install Visual Studio Code from the [official website](https://code.visualstudio.com/).
 2. Install and configure Docker Desktop for your operating system following the instructions on the [official website](https://www.docker.com/get-started).
-3. Once docker is installed, open a command-line interface and pull the `py-pkgs-vscode` docker image by running the following command:
+3. Once docker is installed, open a command-line interface and pull the `pypkgs/vscode` docker image by running the following command:
 
     ```{prompt} bash \$ auto
     $ docker pull pypkgs/vscode
@@ -26,7 +26,7 @@ To develop with Docker inside Visual Studio Code, you can consult the Visual Stu
     }
     ```
 
-7. Now, open the Visual Studio Code [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) and search for and select the command "Remote-Containers: Reopen in Container". This command will open Visual Studio Code inside a container made using the `py-pkgs-vscode` Docker image. After Visual Studio Code finishes opening in the container, test that you have access to the three pre-installed pieces of packaging software we need by opening the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) and trying the following commands:
+7. Now, open the Visual Studio Code [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) and search for and select the command "Remote-Containers: Reopen in Container". This command will open Visual Studio Code inside a container made using the `pypkgs/vscode` Docker image. After Visual Studio Code finishes opening in the container, test that you have access to the three pre-installed pieces of packaging software we need by opening the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) and trying the following commands:
 
     ```{prompt} bash \$ auto
     $ poetry --version
