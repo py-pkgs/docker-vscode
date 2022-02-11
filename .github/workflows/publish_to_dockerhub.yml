@@ -39,7 +39,7 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: tbeuzen/py-pkgs-vscode
+        name: pypkgs/vscode
         username: ${{ secrets.DOCKER_USERNAME_TB }}
         password: ${{ secrets.DOCKER_PASSWORD_TB }}
         tags: "latest,${{ steps.bump.outputs.new_tag }}"
