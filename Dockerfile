@@ -7,7 +7,11 @@ RUN apt update -y && \
   make \
   curl
 
-RUN conda install -c conda-forge -y -q cookiecutter
+RUN conda install -c conda-forge -y -q \
+  cookiecutter \
+  ipykernel \
+  pip
+  
 
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
