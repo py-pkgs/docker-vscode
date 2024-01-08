@@ -37,7 +37,7 @@ jobs:
         prerelease: false
 
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: pypkgs/vscode
         username: ${{ secrets.DOCKER_USERNAME_TB }}
