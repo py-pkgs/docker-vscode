@@ -1,3 +1,4 @@
+# installs Conda, Poetry & Cookiecutter 
 FROM continuumio/miniconda3:latest
 
 RUN apt update -y && \
